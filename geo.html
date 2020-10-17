@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h4>Click here to get location</h4>
+        <button onclick="getLocation()">GetLoc</button>
+        <input type="number" id="demo">
+         
+        <script>
+            var x=document.getElementById("demo");
+
+            function getLocation(){
+                if(navigator.geolocation)
+                navigator.geolocation.watchPosition(showPosition);
+                else {
+                    x.innerHTML="Geolocation is not supported";
+                }
+            }
+
+            function showPosition(position){
+                document.querySelector('input').defaultValue=position.coords.latitude;
+            }
+        </script>
+    </body>
+</html>
